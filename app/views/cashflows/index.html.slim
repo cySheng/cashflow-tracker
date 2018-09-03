@@ -1,0 +1,70 @@
+.columns.is-centered
+  .column.is-3.has-text-centered
+    | Cashflow Per Month
+
+.columns
+  .column.is-3.is-offset-2
+    h1.has-text-centered Expenses
+    - @expenses.each do |expense|
+      div = expense.name
+      div = expense.amount
+  .column.is-3.is-offset-2
+    h1.has-text-centered Income
+    - @incomes.each do |expense|
+      div = expense.name
+      div = expense.amount
+
+.columns.is-centered
+  .column.is-one-quarter
+    h3.has-text-centered Create Expense
+    = form_for @expense do |f|
+      .field
+        label.label = f.label :name
+        .control
+          = f.text_field :name, class: 'input', placeholder: 'Name'
+      .field
+        label.label = f.label :amount
+        .control
+          = f.number_field :amount, step: :any, class: 'input', placeholder: 'Amount', step: :any
+      .field
+        label.label = f.label :frequency
+        .control.select
+          = f.select :frequency, Cashflow.frequencies, class: 'input', placeholder: 'Frequency'
+      .field
+        label.label = f.label :start_date
+        .control
+          = f.date_field :start_date, class: 'input'
+      .field
+        label.label = f.label :end_date
+        .control
+          = f.date_field :end_date, class: 'input'
+      .field
+        .control
+          = f.submit "Create Expense", class: "button is-pimary"
+
+  .column.is-one-quarter
+    h3.has-text-centered Create Income
+    = form_for @income do |f|
+      .field
+        label.label = f.label :name
+        .control
+          = f.text_field :name, class: 'input', placeholder: 'Name'
+      .field
+        label.label = f.label :amount
+        .control
+          = f.number_field :amount, step: :any, class: 'input', placeholder: 'Amount', step: :any
+      .field
+        label.label = f.label :frequency
+        .control.select
+          = f.select :frequency, Cashflow.frequencies, class: 'input', placeholder: 'Frequency'
+      .field
+        label.label = f.label :start_date
+        .control
+          = f.date_field :start_date, class: 'input'
+      .field
+        label.label = f.label :end_date
+        .control
+          = f.date_field :end_date, class: 'input'
+      .field
+        .control
+          = f.submit "Create Income", class: "button is-pimary"

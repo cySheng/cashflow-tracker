@@ -1,0 +1,3 @@
+class Income < Cashflow
+
+end
