@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'figaro'
 gem 'pry-byebug'
+gem 'slim'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

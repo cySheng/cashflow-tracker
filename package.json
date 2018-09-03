@@ -1,7 +1,0 @@
-{
-  "name": "kelvin-track",
-  "private": true,
-  "dependencies": {
-    "bulma-start": "^0.0.2"
-  }
-}

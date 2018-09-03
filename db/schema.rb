@@ -10,19 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_135811) do
+ActiveRecord::Schema.define(version: 2018_08_30_131252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "expenses", force: :cascade do |t|
+  create_table "bank_details", force: :cascade do |t|
+    t.string "bank_name"
+    t.string "account_number"
+    t.bigint "contact_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_bank_details_on_contact_id"
+  end
+
+  create_table "cashflows", force: :cascade do |t|
     t.string "name"
-    t.decimal "amount", precision: 10, scale: 2, default: "0.0"
-    t.string "category"
+    t.string "frequency"
+    t.string "type"
+    t.decimal "amount", precision: 10, scale: 2
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "bank_details", "contacts"
 end

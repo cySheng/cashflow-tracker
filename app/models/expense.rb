@@ -1,2 +1,3 @@
-class Expense < ApplicationRecord
+class Expense < Cashflow
+
 end
