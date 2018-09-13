@@ -4,4 +4,8 @@ class Cashflow < ApplicationRecord
       ["monthly", "one-off"]
     end
   end
+
+  validates :amount, presence: true
+  validates :name, presence: true
+
 end

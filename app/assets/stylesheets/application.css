@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+/*a.button {
+  display: none;
+}*/
+
+.toggle-form-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form {
+  display: none;
+}
+
+.cashflow-details {
+  display: flex;
+  justify-content: space-around;
+}
