@@ -40,23 +40,23 @@
         h3.has-text-centered Create Expense
         = form_for @expense do |f|
           .field
-            label.label = f.label :name
+            = f.label :name, class: 'label'
             .control
               = f.text_field :name, class: 'input', placeholder: 'Name'
           .field
-            label.label = f.label :amount
+            = f.label :amount, class: 'label'
             .control
               = f.number_field :amount, step: :any, class: 'input', placeholder: 'Amount', step: :any
           .field
-            label.label = f.label :frequency
+            = f.label :frequency, class: 'label'
             .control.select
               = f.select :frequency, Cashflow.frequencies, class: 'input', placeholder: 'Frequency'
           .field
-            label.label = f.label :start_date
+            = f.label :start_date, class: 'label'
             .control
               = f.date_field :start_date, class: 'input'
           .field
-            label.label = f.label :end_date
+            = f.label :end_date, class: 'label'
             .control
               = f.date_field :end_date, class: 'input'
           .field
@@ -67,25 +67,29 @@
         h3.has-text-centered Create Income
         = form_for @income do |f|
           .field
-            label.label = f.label :name
+            = f.label :name, class: 'label'
             .control
               = f.text_field :name, class: 'input', placeholder: 'Name'
-          .field
-            label.label = f.label :amount
-            .control
-              = f.number_field :amount, step: :any, class: 'input', placeholder: 'Amount', step: :any
-          .field
-            label.label = f.label :frequency
-            .control.select
-              = f.select :frequency, Cashflow.frequencies, class: 'input', placeholder: 'Frequency'
-          .field
-            label.label = f.label :start_date
-            .control
-              = f.date_field :start_date, class: 'input'
-          .field
-            label.label = f.label :end_date
-            .control
-              = f.date_field :end_date, class: 'input'
+          .field.is-horizontal
+            .field-label
+              = f.label :amount, class: 'label'
+            .field-body
+              .field.is-grouped
+                .control
+                  = f.number_field :amount, step: :any, class: 'input', placeholder: 'Amount', step: 0.01
+                / = f.label :frequency, class: 'label'
+                .control.select
+                  = f.select :frequency, Cashflow.frequencies, class: 'input', placeholder: 'Frequency'
+          .field.is-horizontal
+            .field-label
+              = f.label :start_date, class: 'label'
+            .field-body
+              .field.is-grouped
+                .control
+                  = f.date_field :start_date, class: 'input'
+                / label.label.field-label = f.label :end_date
+                .control
+                  = f.date_field :end_date, class: 'input'
           .field
             .control
               = f.submit "Create Income", class: "button is-pimary"

@@ -38,11 +38,14 @@ function toggleFormVisibility() {
 
 function toggleButton(button) {
   // button.disabled = true;
-  button.setAttribute('disabled', true)
+  button.setAttribute('disabled', true);
+  button.classList.add('is-focused');
+
   toggleFormButtons = document.querySelectorAll('.toggle-form');
   toggleFormButtons.forEach(element => {
     if (element != button){
-      element.removeAttribute('disabled')
+      element.removeAttribute('disabled');
+      element.classList.remove('is-focused');
       // element.disabled = false;
     }
   })
