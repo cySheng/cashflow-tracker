@@ -37,6 +37,7 @@ gem 'figaro'
 gem 'pry-byebug'
 gem 'slim'
 gem 'webpacker', '~> 3.5'
+gem 'clearance'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
