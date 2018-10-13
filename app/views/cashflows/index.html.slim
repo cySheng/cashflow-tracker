@@ -1,6 +1,6 @@
 .columns.is-centered
   .column.is-3.has-text-centered
-    | Cashflow
+    h1 Cashflow
 
 .columns
   .column
@@ -17,7 +17,7 @@
               td = expense.name
               td = expense.amount
               td = expense.created_at.to_date
-      section.income-details.details
+      / section.income-details.details
         h3.title.has-text-centered Income
         table.table.is-striped
           thead
@@ -34,7 +34,7 @@
   .column.is-centered.is-two-fifths
     .toggle-form-buttons.column
       a.button.is-danger.toggle-form data-toggle-form="expense-form" Add an Expense
-      a.button.is-primary.toggle-form data-toggle-form="income-form" Add an Income
+      / a.button.is-primary.toggle-form data-toggle-form="income-form" Add an Income
     .section-forms.column
       #expense-form.form
         h3.has-text-centered Create Expense
@@ -51,15 +51,15 @@
             = f.label :amount, class: 'label'
             .control
               = f.number_field :amount, step: :any, class: 'input', placeholder: 'Amount', step: :any
-          .field
+          / .field
             = f.label :frequency, class: 'label'
             .control.select
               = f.select :frequency, Cashflow.frequencies, class: 'input', placeholder: 'Frequency'
-          .field
+          / .field
             = f.label :start_date, class: 'label'
             .control
               = f.date_field :start_date, class: 'input'
-          .field
+          / .field
             = f.label :end_date, class: 'label'
             .control
               = f.date_field :end_date, class: 'input'
