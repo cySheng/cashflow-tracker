@@ -1,6 +1,8 @@
 class IncomesController < ApplicationController
+  before_action :require_login
+
   def create
-    @income = Income.new(income_params)
+    @income = current_user.incomes.new(income_params)
     if @income.save
       redirect_to cashflows_path
     end
