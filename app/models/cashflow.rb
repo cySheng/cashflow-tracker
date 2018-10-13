@@ -11,4 +11,6 @@ class Cashflow < ApplicationRecord
   validates :name, presence: true
   validates :billed_on, presence: true
 
+  has_one_attached :document
+
 end

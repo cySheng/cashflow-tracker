@@ -12,12 +12,15 @@
             th Name
             th Amount
             th Billed On
+            th Document
           tbody
             - @expenses.each do |expense|
               tr
                 td = expense.name
                 td = expense.amount
                 td = expense.billed_on
+                - if expense.document.attached?
+                  td = link_to "Document", expense.document
       / section.income-details.details
         h3.title.has-text-centered Income
         table.table.is-striped
@@ -56,6 +59,19 @@
             = f.label :billed_on, class: 'label'
             .control
               = f.date_field :billed_on, class: 'input'
+          .field
+            = f.label :document, class: 'label'
+            .control
+              = f.file_field :document, class: ''
+          / .file.has-name.field
+          /   = f.label :document, class: 'label'
+          /   label.file-label.control
+          /     = f.file_field :document, class: 'file-input'
+          /     span.file-cta
+          /       span.file-icon
+          /         i.fas.fa-upload
+          /       span.file-label Choose a file
+          /     span.file-name
           / .field
             = f.label :frequency, class: 'label'
             .control.select
