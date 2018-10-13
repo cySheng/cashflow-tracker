@@ -44,6 +44,10 @@
             .control
               = f.text_field :name, class: 'input', placeholder: 'Name'
           .field
+            = f.label :description, class: 'label'
+            .control
+              = f.text_field :description, class: 'input', placeholder: 'Description'
+          .field
             = f.label :amount, class: 'label'
             .control
               = f.number_field :amount, step: :any, class: 'input', placeholder: 'Amount', step: :any
