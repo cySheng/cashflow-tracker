@@ -9,5 +9,6 @@ class Cashflow < ApplicationRecord
 
   validates :amount, presence: true
   validates :name, presence: true
+  validates :billed_on, presence: true
 
 end

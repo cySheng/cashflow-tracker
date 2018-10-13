@@ -11,12 +11,13 @@
           thead
             th Name
             th Amount
-            th Date
+            th Billed On
           tbody
             - @expenses.each do |expense|
-              td = expense.name
-              td = expense.amount
-              td = expense.created_at.to_date
+              tr
+                td = expense.name
+                td = expense.amount
+                td = expense.billed_on
       / section.income-details.details
         h3.title.has-text-centered Income
         table.table.is-striped
@@ -51,6 +52,10 @@
             = f.label :amount, class: 'label'
             .control
               = f.number_field :amount, step: :any, class: 'input', placeholder: 'Amount', step: :any
+          .field
+            = f.label :billed_on, class: 'label'
+            .control
+              = f.date_field :billed_on, class: 'input'
           / .field
             = f.label :frequency, class: 'label'
             .control.select
@@ -67,7 +72,7 @@
             .control
               = f.submit "Create Expense", class: "button is-pimary"
 
-      #income-form.form
+      / #income-form.form
         h3.has-text-centered Create Income
         = form_for @income do |f|
           .field
