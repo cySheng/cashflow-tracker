@@ -38,7 +38,6 @@ gem 'pry-byebug'
 gem 'slim'
 gem 'webpacker', '~> 3.5'
 gem 'clearance'
-gem 'figaro'
 gem "aws-sdk-s3", require: false
 
 # Reduces boot times through caching; required in config/boot.rb

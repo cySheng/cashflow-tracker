@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_13_093548) do
+ActiveRecord::Schema.define(version: 2018_12_23_024852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2018_10_13_093548) do
   end
 
   create_table "cashflows", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
     t.string "frequency"
     t.string "type"
     t.decimal "amount", precision: 10, scale: 2
@@ -54,9 +54,10 @@ ActiveRecord::Schema.define(version: 2018_10_13_093548) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "description"
+    t.text "description"
     t.bigint "user_id"
     t.date "billed_on"
+    t.string "category"
     t.index ["user_id"], name: "index_cashflows_on_user_id"
   end
 

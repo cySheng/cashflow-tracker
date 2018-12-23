@@ -1,0 +1,23 @@
+.field
+  = f.label :name, class: 'label'
+  .control
+    = f.text_field :name, class: 'input', placeholder: 'Name'
+.field
+  = f.label :description, class: 'label'
+  .control
+    = f.text_field :description, class: 'input', placeholder: 'Description'
+.field
+  = f.label :amount, class: 'label'
+  .control
+    = f.number_field :amount, step: :any, class: 'input', placeholder: 'Amount', step: :any
+.field
+  = f.label :billed_on, class: 'label'
+  .control
+    = f.date_field :billed_on, class: 'input'
+.field
+  = f.label :document, class: 'label'
+  .control
+    = f.file_field :document, class: ''
+.field
+  .control
+    = f.submit "Create Expense", class: "button is-pimary"

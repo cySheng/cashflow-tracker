@@ -34,7 +34,10 @@
 
   <div id="flash">
     <% flash.each do |key, value| -%>
-      <div id="flash_<%= key %>"><%=h value %></div>
+      <div id="notification flash_<%= key %>">
+        <button class="delete"></button>
+        <%= value %>
+      </div>
     <% end %>
   </div>
   <div class="container">

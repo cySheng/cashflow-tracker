@@ -1,0 +1,4 @@
+.columns.is-centered
+  .column.is-3.has-text-centered
+    = form_for @expense do |f|
+      = render partial: "form", locals: { f: f}

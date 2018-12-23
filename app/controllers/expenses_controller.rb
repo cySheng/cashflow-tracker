@@ -6,7 +6,8 @@ class ExpensesController < ApplicationController
     if @expense.save
       redirect_to root_path
     else
-      flash.now[:error] = "Something went wrong."
+      flash.now[:error] = @expense.errors.full_messages
+      render "expenses/new"
       # @expenses = current_user.expenses
       # @incomes = current_user.incomes
     end
@@ -15,6 +16,6 @@ class ExpensesController < ApplicationController
   private
 
   def expense_params
-    params.require(:expense).permit(:name, :amount, :frequency, :start_date, :end_date, :description, :billed_on, :document)
+    params.require(:expense).permit(:title, :category, :amount, :frequency, :start_date, :end_date, :description, :billed_on, :document)
   end
 end
