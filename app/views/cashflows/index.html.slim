@@ -9,16 +9,24 @@
         h3.title.has-text-centered Expenses
         table.table.is-striped
           thead
-            th Name
+            th Title
+            th Description
+            th Category
             th Amount
+            th Paid By
             th Billed On
+            th Reimbursed
             th Document
           tbody
             - @expenses.each do |expense|
               tr
-                td = expense.name
+                td = expense.title
+                td = expense.description
+                td = expense.category
                 td = expense.amount
+                td = expense.paid_by
                 td = expense.billed_on
+                td = expense.reimbursed
                 - if expense.document.attached?
                   td = link_to "Document", expense.document
       / section.income-details.details
@@ -59,6 +67,10 @@
             = f.label :amount, class: 'label'
             .control
               = f.number_field :amount, step: :any, class: 'input', placeholder: 'Amount', step: :any
+          .field
+            = f.label :paid_by, class: 'label'
+            .control
+              = f.select :paid_by, options_for_select([["Dad", "dad"],["Sheng", "sheng"]]), class: 'input'
           .field
             = f.label :billed_on, class: 'label'
             .control

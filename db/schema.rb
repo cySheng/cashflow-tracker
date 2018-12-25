@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_23_024852) do
+ActiveRecord::Schema.define(version: 2018_12_24_023912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 2018_12_23_024852) do
     t.bigint "user_id"
     t.date "billed_on"
     t.string "category"
+    t.string "paid_by"
+    t.boolean "reimbursed"
     t.index ["user_id"], name: "index_cashflows_on_user_id"
   end
 

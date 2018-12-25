@@ -1,15 +1,23 @@
 .field
-  = f.label :name, class: 'label'
+  = f.label :title, class: 'label'
   .control
-    = f.text_field :name, class: 'input', placeholder: 'Name'
+    = f.text_field :title, class: 'input', placeholder: 'Ttile'
 .field
   = f.label :description, class: 'label'
   .control
     = f.text_field :description, class: 'input', placeholder: 'Description'
 .field
+  = f.label :category, class: 'label'
+  .control
+    = f.text_field :category, class: 'input', placeholder: 'Description'
+.field
   = f.label :amount, class: 'label'
   .control
     = f.number_field :amount, step: :any, class: 'input', placeholder: 'Amount', step: :any
+.field
+  = f.label :paid_by, class: 'label'
+  .control
+    = f.select :paid_by, options_for_select([["Dad", "dad"],["Sheng", "sheng"]]), class: 'input'
 .field
   = f.label :billed_on, class: 'label'
   .control
