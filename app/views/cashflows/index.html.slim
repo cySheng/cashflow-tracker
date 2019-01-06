@@ -7,7 +7,7 @@
     section.cashflow-details
       section.expenses-details.details
         h3.title.has-text-centered Expenses
-        table.table.is-striped
+        table.table.is-striped#expenses
           thead
             th Title
             th Description
@@ -16,18 +16,22 @@
             th Paid By
             th Billed On
             th Reimbursed
-            th Document
+            / th Document
           tbody
             - @expenses.each do |expense|
               tr
-                td = expense.title
+                td
+                  - if expense.document.attached?
+                    = link_to expense.title, expense.document
+                  - else
+                    = expense.title
                 td = expense.description
                 td = expense.category
                 td = expense.amount
                 td = expense.paid_by
                 td = expense.billed_on
                 td = expense.reimbursed
-                - if expense.document.attached?
+                / - if expense.document.attached?
                   td = link_to "Document", expense.document
       / section.income-details.details
         h3.title.has-text-centered Income
